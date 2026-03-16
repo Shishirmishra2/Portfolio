@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #F7F5F0;
+  --color-surface: #EFECEA;
+  --color-white: #FFFFFF;
+  --color-ink: #1A1814;
+  --color-ink-soft: #6B6760;
+  --color-accent: #3A6EA5;
+  --color-accent-dark: #2B5480;
+  --color-accent-light: #E4EEF7;
+  --color-border: #D8D4CE;
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-weight: 300;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 3px;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-24 px-6 md:px-16;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
