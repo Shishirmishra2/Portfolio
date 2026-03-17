@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase';
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,8 +18,9 @@ export default function Contact() {
       if (error) throw error;
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
+      setErrorMessage(err?.message || 'Unknown error');
       setStatus('error');
     }
   };
@@ -75,7 +77,7 @@ export default function Contact() {
             </button>
 
             {status === 'success' && <p className="text-sm text-green-500 mt-2">Appointment request sent successfully! I will get in touch with you soon.</p>}
-            {status === 'error' && <p className="text-sm text-red-500 mt-2">Failed to send request. Did you configure Supabase?</p>}
+            {status === 'error' && <p className="text-sm text-red-500 mt-2">Failed to send request: {errorMessage}</p>}
           </form>
         </div>
 
