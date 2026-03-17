@@ -21,35 +21,37 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="bg-[#F7F5F0] py-24 px-6 md:px-16 overflow-hidden">
+    <section id="projects" className="bg-bg py-24 px-6 md:px-16 overflow-hidden">
       <div className="flex items-baseline gap-6 mb-16">
-        <span className="font-serif text-[0.9rem] italic text-[#3A6EA5] shrink-0">04</span>
-        <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] text-[#1A1814] leading-[1.1] shrink-0">Projects</h2>
-        <div className="flex-1 h-[1px] bg-[#D8D4CE] mb-1"></div>
+        <span className="font-serif text-[0.9rem] italic text-accent shrink-0">04</span>
+        <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] text-ink leading-[1.1] shrink-0">Projects</h2>
+        <div className="flex-1 h-[1px] bg-border mb-1"></div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((proj, idx) => (
-          <div key={idx} className="bg-white p-10 border border-[#D8D4CE] flex flex-col transition-all duration-300 hover:shadow-[0_8px_32px_rgba(58,110,165,0.1)] hover:border-[#3A6EA5] hover:-translate-y-1 reveal" style={{ transitionDelay: `${idx * 0.12}s` }}>
-            <span className="inline-block self-start mb-5 px-2.5 py-1 bg-[#E4EEF7] text-[#3A6EA5] text-[0.68rem] font-medium tracking-[0.1em] uppercase">
+          <div key={idx} className="group relative flex flex-col h-full bg-white p-8 md:p-10 rounded-2xl border border-border/60 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:border-border reveal" style={{ transitionDelay: `${idx * 0.12}s` }}>
+            <span className="inline-block self-start mb-5 px-3 py-1.5 rounded-md bg-bg text-ink-soft text-[0.68rem] font-medium tracking-[0.1em] uppercase transition-colors duration-500 group-hover:bg-accent-light/50 group-hover:text-accent">
               {proj.domain}
             </span>
-            <h3 className="font-serif text-[1.5rem] text-[#1A1814] mb-2 leading-[1.2]">{proj.title}</h3>
-            <p className="text-[0.75rem] text-[#6B6760] italic mb-4">{proj.stack}</p>
-            <p className="text-[0.9rem] text-[#6B6760] leading-[1.78] flex-1 mb-6">
+            <h3 className="font-serif text-[1.5rem] text-ink mb-2 leading-[1.2] transition-colors duration-300 group-hover:text-accent">{proj.title}</h3>
+            <p className="text-[0.75rem] text-ink-soft italic mb-4">{proj.stack}</p>
+            <p className="text-[0.9rem] text-ink-soft leading-[1.78] flex-1 mb-6">
               {proj.desc}
             </p>
-            <div className="flex justify-between items-center border-t border-[#D8D4CE] pt-4">
-              <span className="text-[0.75rem] text-[#6B6760]">{proj.period}</span>
-              {proj.badge && (
-                <span className="px-2.5 py-1 border border-[#3A6EA5] text-[#3A6EA5] text-[0.65rem] font-medium tracking-[0.08em] uppercase">
-                  {proj.badge}
-                </span>
-              )}
-              {proj.link && (
-                <a href={proj.link} className="text-[0.75rem] font-medium tracking-[0.08em] uppercase text-[#3A6EA5] no-underline transition-opacity hover:opacity-70 hover:underline">
-                  GitHub →
-                </a>
-              )}
+            <div className="mt-auto pt-6 flex justify-between items-center border-t border-border/40 transition-colors duration-500">
+              <span className="text-[0.75rem] text-ink-soft">{proj.period}</span>
+              <div className="flex gap-3 items-center">
+                {proj.badge && (
+                  <span className="px-2.5 py-1 rounded-md border border-border text-ink-soft text-[0.65rem] font-medium tracking-[0.08em] uppercase transition-colors duration-500 group-hover:border-accent/30 group-hover:text-accent">
+                    {proj.badge}
+                  </span>
+                )}
+                {proj.link && (
+                  <a href={proj.link} className="text-[0.75rem] font-medium tracking-[0.08em] uppercase text-ink-soft no-underline transition-colors duration-500 hover:text-accent">
+                    GitHub →
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}

@@ -1,20 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #F7F5F0;
-  --color-surface: #EFECEA;
-  --color-white: #FFFFFF;
-  --color-ink: #1A1814;
-  --color-ink-soft: #6B6760;
-  --color-accent: #3A6EA5;
-  --color-accent-dark: #2B5480;
-  --color-accent-light: #E4EEF7;
-  --color-border: #D8D4CE;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-white: var(--white);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-light: var(--accent-light);
+  --color-border: var(--border);
   --font-serif: "DM Serif Display", Georgia, serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
 }
 
 @layer base {
+  :root {
+    --bg: #F7F5F0;
+    --surface: #EFECEA;
+    --white: #FFFFFF;
+    --ink: #1A1814;
+    --ink-soft: #6B6760;
+    --accent: #3A6EA5;
+    --accent-dark: #2B5480;
+    --accent-light: #E4EEF7;
+    --border: #D8D4CE;
+  }
+
+  .dark {
+    --bg: #141311;
+    --surface: #1E1C1A;
+    --white: #1C1A17;
+    --ink: #F7F5F0;
+    --ink-soft: #A3A09B;
+    --accent: #6FA4D8;
+    --accent-dark: #8BB8E1;
+    --accent-light: #1E2E40;
+    --border: #38342E;
+  }
   html {
     scroll-behavior: smooth;
   }

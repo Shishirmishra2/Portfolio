@@ -27,23 +27,26 @@ const skillGroups = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-[#F7F5F0] py-24 px-6 md:px-16 overflow-hidden">
+    <section id="skills" className="bg-bg py-24 px-6 md:px-16 overflow-hidden">
       <div className="flex items-baseline gap-6 mb-16">
-        <span className="font-serif text-[0.9rem] italic text-[#3A6EA5] shrink-0">02</span>
-        <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] text-[#1A1814] leading-[1.1] shrink-0">Skills</h2>
-        <div className="flex-1 h-[1px] bg-[#D8D4CE] mb-1"></div>
+        <span className="font-serif text-[0.9rem] italic text-accent shrink-0">02</span>
+        <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] text-ink leading-[1.1] shrink-0">Skills</h2>
+        <div className="flex-1 h-[1px] bg-border mb-1"></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[#D8D4CE]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
         {skillGroups.map((group, idx) => (
-          <div key={group.label} className="bg-[#F7F5F0] p-8 reveal" style={{ transitionDelay: `${idx * 0.05}s` }}>
-            <div className="text-[0.68rem] font-medium tracking-[0.14em] uppercase text-[#3A6EA5] mb-4">
-              {group.label}
+          <div key={group.label} className="reveal" style={{ transitionDelay: `${idx * 0.05}s` }}>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-2 h-2 rounded-full bg-border transition-colors duration-500"></span>
+              <div className="text-[0.8rem] font-medium tracking-[0.1em] uppercase text-ink">
+                {group.label}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2.5">
               {group.tags.map(tag => (
                 <span 
                   key={tag} 
-                  className="px-3 py-1 border border-[#D8D4CE] text-[0.82rem] text-[#6B6760] cursor-default transition-colors hover:border-[#3A6EA5] hover:bg-[#E4EEF7] hover:text-[#3A6EA5]"
+                  className="px-3 py-1.5 rounded-md border border-border/60 bg-surface/50 text-[0.75rem] text-ink-soft cursor-default transition-all duration-300 hover:border-accent hover:bg-accent-light hover:text-accent"
                 >
                   {tag}
                 </span>
